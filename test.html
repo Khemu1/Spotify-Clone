@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Buzz.js Audio Player</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.2.1/buzz.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Audio Player</h1>
+
+        <!-- Create a container for the audio player -->
+        <div id="audio-container">
+            <button id="play-pause-button">Play</button>
+            <button id="prev-button">Previous</button>
+            <button id="next-button">Next</button>
+        </div>
+
+        <script>
+            // Initialize Buzz.js
+            const playlist = [
+                { src: "assets/songs/Bana.mp3" },
+                { src: "assets/songs/Danheim - Hefna.mp3" },
+                // Add more songs as needed
+            ];
+
+            const audio = new buzz.group(playlist.map(song => song.src));
+
+            let currentSongIndex = 0;
+
+            // Get references to the buttons
+            const playPauseButton = document.getElementById('play-pause-button');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+
+            // Function to play or pause the audio
+            // playPauseButton.addEventListener('click', () => {
+            //     if (audio.isPaused()) {
+            //         audio.play();
+            //         playPauseButton.textContent = 'Pause';
+            //     } else {
+            //         audio.pause();
+            //         playPauseButton.textContent = 'Play';
+            //     }
+            // });
+
+            // Function to play the previous song
+            prevButton.addEventListener('click', () => {
+                // if (currentSongIndex > 0) {
+                //     currentSongIndex--;
+                //     playCurrentSong();
+                // }
+            });
+
+            // Function to play the next song
+            nextButton.addEventListener('click', () => {
+                // if (currentSongIndex < playlist.length - 1) {
+                //     currentSongIndex++;
+                //     playCurrentSong();
+                // }
+            });
+
+            // Function to play the current song
+            // function playCurrentSong() {
+            //     audio.setTime(0);
+            //     audio.load(playlist[currentSongIndex].src);
+            //     audio.play();
+            //     playPauseButton.textContent = 'Pause';
+            // }
+        </script>
+    </body>
+
+</html>
